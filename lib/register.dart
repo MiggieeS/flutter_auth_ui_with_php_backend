@@ -120,43 +120,56 @@ class _RegisterPageState extends State<RegisterPage> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(64.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const SizedBox(height: 12),
-              TextField(
-                controller: _nameController,
-                decoration: const InputDecoration(
-                  labelText: 'Username',
-                  prefixIcon: Icon(Icons.account_circle, color: Colors.teal),
-                  border: OutlineInputBorder(),
-                ),
+        child: Center(
+          // Center the container on screen
+          child: Container(
+            color: Colors.white.withValues(alpha: 0.7),
+            child: Padding(
+              padding: const EdgeInsets.all(32.0), // adjust padding as needed
+              child: Column(
+                mainAxisSize: MainAxisSize.min, // shrink to fit content
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  TextField(
+                    controller: _nameController,
+                    decoration: const InputDecoration(
+                      labelText: 'Username',
+                      prefixIcon: Icon(
+                        Icons.account_circle,
+                        color: Colors.teal,
+                      ),
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  TextField(
+                    controller: _emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: const InputDecoration(
+                      labelText: 'Email',
+                      prefixIcon: Icon(
+                        Icons.email_outlined,
+                        color: Colors.teal,
+                      ),
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  TextField(
+                    controller: _passwordController,
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      labelText: 'Password',
+                      prefixIcon: Icon(Icons.lock_outline, color: Colors.teal),
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  const SizedBox(height: 26),
+                  _buildActionButtons(),
+                ],
               ),
-              const SizedBox(height: 12),
-              TextField(
-                controller: _emailController,
-                keyboardType: TextInputType.emailAddress,
-                decoration: const InputDecoration(
-                  labelText: 'Email',
-                  prefixIcon: Icon(Icons.email_outlined, color: Colors.teal),
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 12),
-              TextField(
-                controller: _passwordController,
-                obscureText: true,
-                decoration: const InputDecoration(
-                  labelText: 'Password',
-                  prefixIcon: Icon(Icons.lock_outline, color: Colors.teal),
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 26),
-              _buildActionButtons(),
-            ],
+            ),
           ),
         ),
       ),
