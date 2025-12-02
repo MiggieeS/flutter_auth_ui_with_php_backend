@@ -1,4 +1,4 @@
-# Auth_UI with PHP Backend
+# Auth_UI
 
 This project is a Flutter-based authentication UI that connects to a PHP + MySQL backend.  
 
