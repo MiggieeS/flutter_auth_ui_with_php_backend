@@ -121,13 +121,12 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
         ),
         child: Center(
-          // Center the container on screen
           child: Container(
             color: Colors.white.withValues(alpha: 0.7),
             child: Padding(
-              padding: const EdgeInsets.all(32.0), // adjust padding as needed
+              padding: const EdgeInsets.all(32.0),
               child: Column(
-                mainAxisSize: MainAxisSize.min, // shrink to fit content
+                mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
