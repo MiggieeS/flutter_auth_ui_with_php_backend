@@ -1,6 +1,18 @@
 import 'package:flutter/material.dart';
 import 'register.dart';
 
+double adaptiveFontSize(BuildContext context, double baseSize) {
+  final screenWidth = MediaQuery.of(context).size.width;
+
+  if (screenWidth < 400) {
+    return baseSize * 0.8;
+  } else if (screenWidth > 700) {
+    return baseSize * 1.2;
+  } else {
+    return baseSize;
+  }
+}
+
 class FrostedCard extends StatelessWidget {
   final Widget child;
   final EdgeInsetsGeometry? padding;
@@ -11,10 +23,10 @@ class FrostedCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
 
-    final cardWidth = screenWidth > 700 ? 600.0 : screenWidth * 0.9;
+    final cardWidth = screenWidth > 700 ? 600.0 : screenWidth * 0.8;
 
     final cardPadding =
-        padding ?? EdgeInsets.all(screenWidth < 400 ? 16.0 : 32.0);
+        padding ?? EdgeInsets.all(screenWidth < 400 ? 14.0 : 26.0);
 
     return Container(
       width: cardWidth,
@@ -23,7 +35,7 @@ class FrostedCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.2),
+            color: Colors.black.withValues(alpha: 0.5),
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),
@@ -91,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                   'Welcome back! \n Let\'s get you signed in',
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
-                    fontSize: 30,
+                    fontSize: adaptiveFontSize(context, 26),
                     color: Colors.teal.shade900,
                     letterSpacing: 0.2,
                   ),
@@ -102,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                   'Sign in to continue',
                   style: TextStyle(
                     fontWeight: FontWeight.normal,
-                    fontSize: 18,
+                    fontSize: adaptiveFontSize(context, 18),
                     color: Colors.teal.shade800,
                   ),
                 ),
@@ -143,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                       'Login',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: adaptiveFontSize(context, 16),
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -156,7 +168,10 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       Text(
                         "Don't have an account?",
-                        style: TextStyle(fontSize: 14, color: Colors.grey[700]),
+                        style: TextStyle(
+                          fontSize: adaptiveFontSize(context, 14),
+                          color: Colors.grey[700],
+                        ),
                       ),
                       SizedBox(width: 6),
                       TextButton(
@@ -176,7 +191,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: Text(
                           'Sign Up',
                           style: TextStyle(
-                            fontSize: 14,
+                            fontSize: adaptiveFontSize(context, 14),
                             color: Colors.teal.shade700,
                             fontWeight: FontWeight.bold,
                           ),
