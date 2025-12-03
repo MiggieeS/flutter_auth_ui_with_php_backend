@@ -86,18 +86,18 @@ class _RegisterPageState extends State<RegisterPage> {
             onPressed: _loading ? null : _register,
             child: _loading
                 ? const SizedBox(
-                    width: 20,
-                    height: 20,
+                    width: double.infinity,
+                    height: 67,
                     child: CircularProgressIndicator(
                       color: Colors.white,
                       strokeWidth: 2,
                     ),
                   )
-                : const Text(
+                : Text(
                     'Register',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 16,
+                      fontSize: adaptiveFontSize(context, 15),
                       fontWeight: FontWeight.bold,
                     ),
                   ),

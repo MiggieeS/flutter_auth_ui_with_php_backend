@@ -140,7 +140,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 26),
                 SizedBox(
                   width: double.infinity,
-                  height: 49,
+                  height: 50,
                   child: ElevatedButton(
                     onPressed: () {
                       // handle login
@@ -148,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.teal.shade600,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(100),
                       ),
                     ),
                     child: Text(
