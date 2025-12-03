@@ -27,12 +27,12 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _usernameController = TextEditingController();
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
   @override
   void dispose() {
-    _usernameController.dispose();
+    _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
@@ -49,119 +49,121 @@ class _LoginPageState extends State<LoginPage> {
         ),
         child: Center(
           child: Container(
-            color: Colors.white.withValues(alpha: 0.7),
-            child: Padding(
-              padding: const EdgeInsets.all(100.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    'Welcome back! Let\'s get you signed in',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 32,
-                      color: Colors.teal.shade900,
-                      letterSpacing: 0.2,
-                    ),
-                    textAlign: TextAlign.center,
+            decoration: BoxDecoration(
+              color: Colors.white.withValues(alpha: 0.7),
+              borderRadius: BorderRadius.circular(16),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.2),
+                  blurRadius: 8,
+                  offset: Offset(0, 2),
+                ),
+              ],
+            ),
+            padding: const EdgeInsets.all(32.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'Welcome back! \n Let\'s get you signed in',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 30,
+                    color: Colors.teal.shade900,
+                    letterSpacing: 0.2,
                   ),
-                  SizedBox(height: 6),
-                  Text(
-                    'Sign in to continue',
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      fontSize: 18,
-                      color: Colors.teal.shade800,
-                    ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 6),
+                Text(
+                  'Sign in to continue',
+                  style: TextStyle(
+                    fontWeight: FontWeight.normal,
+                    fontSize: 18,
+                    color: Colors.teal.shade800,
                   ),
-                  SizedBox(height: 26),
-                  TextField(
-                    controller: _usernameController,
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(
-                        Icons.person_outline,
-                        color: Colors.teal,
+                ),
+                SizedBox(height: 26),
+                TextField(
+                  controller: _emailController,
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.email_outlined, color: Colors.teal),
+                    labelText: 'Email',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                SizedBox(height: 16),
+                TextField(
+                  controller: _passwordController,
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.lock_outline, color: Colors.teal),
+                    labelText: 'Password',
+                    border: OutlineInputBorder(),
+                  ),
+                  obscureText: true,
+                ),
+                SizedBox(height: 26),
+                SizedBox(
+                  width: double.infinity,
+                  height: 49,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // handle login
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.teal.shade600,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      labelText: 'Username',
-                      border: OutlineInputBorder(),
+                    ),
+                    child: Text(
+                      'Login',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                  SizedBox(height: 16),
-                  TextField(
-                    controller: _passwordController,
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.lock_outline, color: Colors.teal),
-                      labelText: 'Password',
-                      border: OutlineInputBorder(),
-                    ),
-                    obscureText: true,
-                  ),
-                  SizedBox(height: 26),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 49,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // handle login
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.teal.shade600,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                ),
+                SizedBox(height: 10),
+                Center(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        "Don't have an account?",
+                        style: TextStyle(fontSize: 14, color: Colors.grey[700]),
+                      ),
+                      SizedBox(width: 6),
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.symmetric(horizontal: 4.0),
+                          minimumSize: Size(0, 0),
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         ),
-                      ),
-                      child: Text(
-                        'Login',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Center(
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          "Don't have an account?",
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute<void>(
+                              builder: (context) => const RegisterPage(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          'Sign Up',
                           style: TextStyle(
                             fontSize: 14,
-                            color: Colors.grey[700],
+                            color: Colors.teal.shade700,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(width: 6),
-                        TextButton(
-                          style: TextButton.styleFrom(
-                            padding: EdgeInsets.symmetric(horizontal: 4.0),
-                            minimumSize: Size(0, 0),
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          ),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute<void>(
-                                builder: (context) => const RegisterPage(),
-                              ),
-                            );
-                          },
-                          child: Text(
-                            'Sign Up',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.teal.shade700,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
