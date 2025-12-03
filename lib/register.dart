@@ -44,9 +44,10 @@ class _RegisterPageState extends State<RegisterPage> {
 
     try {
       final uri = Uri.parse(_registerUrl);
-      final resp = await http
-          .post(uri, body: {'name': name, 'email': email, 'password': password})
-          .timeout(const Duration(seconds: 15));
+      final resp = await http.post(
+        uri,
+        body: {'name': name, 'email': email, 'password': password},
+      );
 
       if (resp.statusCode == 200) {
         final data = json.decode(resp.body);
@@ -54,7 +55,6 @@ class _RegisterPageState extends State<RegisterPage> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(data['message'] ?? 'Registered')),
           );
-          Navigator.pop(context);
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(data['message'] ?? 'Registration failed')),
@@ -123,6 +123,26 @@ class _RegisterPageState extends State<RegisterPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                Text(
+                  'Create your account',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: adaptiveFontSize(context, 30),
+                    color: Colors.teal.shade900,
+                    letterSpacing: 0.2,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 6),
+                Text(
+                  'Please fill in your details below to get started',
+                  style: TextStyle(
+                    fontWeight: FontWeight.normal,
+                    fontSize: adaptiveFontSize(context, 18),
+                    color: Colors.teal.shade800,
+                  ),
+                ),
+                const SizedBox(height: 24),
                 TextField(
                   controller: _nameController,
                   decoration: const InputDecoration(

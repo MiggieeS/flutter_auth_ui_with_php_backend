@@ -100,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Welcome back! \n Let\'s get you signed in',
+                  'Welcome back!',
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: adaptiveFontSize(context, 30),
@@ -111,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(height: 6),
                 Text(
-                  'Sign in to continue',
+                  'Let\'s get you signed in',
                   style: TextStyle(
                     fontWeight: FontWeight.normal,
                     fontSize: adaptiveFontSize(context, 18),
