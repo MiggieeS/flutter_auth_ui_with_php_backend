@@ -141,7 +141,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       border: OutlineInputBorder(),
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 16),
                   TextField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
@@ -154,7 +154,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       border: OutlineInputBorder(),
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 16),
                   TextField(
                     controller: _passwordController,
                     obscureText: true,
@@ -164,7 +164,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       border: OutlineInputBorder(),
                     ),
                   ),
-                  const SizedBox(height: 26),
+                  const SizedBox(height: 28),
                   _buildActionButtons(),
                 ],
               ),
