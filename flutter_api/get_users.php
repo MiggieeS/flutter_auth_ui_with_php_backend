@@ -1,4 +1,5 @@
 <?php
+
 include 'db_config.php'; // Include database configuration
 
 $sql = "SELECT * FROM users";
@@ -11,4 +12,5 @@ while ($row = $result -> fetch_assoc()){ // Fetch each user as an associative ar
 }
 
 echo json_encode($users); // Output users as JSON
+
 ?>
