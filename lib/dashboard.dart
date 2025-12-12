@@ -18,8 +18,7 @@ class _DashboardPageState extends State<DashboardPage> {
   List<dynamic> _users = [];
   bool _loading = true;
 
-  final String _usersUrl =
-      'http://192.168.1.160/flutter_api/get_users.php'; // Replace with your device IPv4 address
+  final String _usersUrl = 'http://127.0.0.1/flutter_api/get_users.php';
 
   @override
   void initState() {
