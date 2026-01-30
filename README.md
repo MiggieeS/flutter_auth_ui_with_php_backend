@@ -12,9 +12,8 @@ This project is a Flutter-based authentication UI that connects to a PHP + MySQL
 - XAMPP (Apache + MySQL)
 - Git
 
-#### Backend (PHP + MySQL)
+## Backend Setup (PHP + MySQL)
 ```markdown
-### Backend Setup
 1. Copy the `flutter_api/` folder into your XAMPP `htdocs` directory.
    Example: `C:/xampp/htdocs/flutter_api/`
 2. Start Apache and MySQL from the XAMPP Control Panel.
